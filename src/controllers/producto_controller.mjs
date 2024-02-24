@@ -54,6 +54,22 @@ const productosController = {
       res.status(500).send(error.message);
     }
   },
+  obtenerPorId: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const producto = await Producto.findOne({
+        where: { id_producto: id },
+      });
+
+      if (producto) {
+        res.json(producto);
+      } else {
+        res.status(404).json({ message: "Producto no encontrado" });
+      }
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 export default productosController;

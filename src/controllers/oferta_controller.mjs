@@ -11,8 +11,8 @@ const ofertasController = {
 
   crear: async (req, res) => {
     try {
-      const producto = await Oferta.create(req.body);
-      res.status(201).json(producto);
+      const oferta = await Oferta.create(req.body);
+      res.status(201).json(oferta);
     } catch (error) {
       res.status(500).send(error.message);
     }
@@ -22,7 +22,7 @@ const ofertasController = {
     try {
       const id = req.params.id;
       const deleteRowCount = await Oferta.destroy({
-        where: { id_producto: id },
+        where: { id_oferta: id },
       });
 
       if (deleteRowCount > 0) {
@@ -39,16 +39,32 @@ const ofertasController = {
     try {
       const id = req.params.id;
       const updateRowCount = await Oferta.update(req.body, {
-        where: { id_producto: id },
+        where: { id_oferta: id },
       });
 
       if (updateRowCount > 0) {
         const updatedOferta = await Oferta.findOne({
-          where: { id_producto: id },
+          where: { id_oferta: id },
         });
         res.json(updatedOferta);
       } else {
         res.status(404).json({ message: "Oferta no encontrado" });
+      }
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
+  obtenerPorId: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const oferta = await Oferta.findOne({
+        where: { id_oferta: id },
+      });
+
+      if (oferta) {
+        res.json(oferta);
+      } else {
+        res.status(404).json({ message: "Oferta no encontrada" });
       }
     } catch (error) {
       res.status(500).send(error.message);

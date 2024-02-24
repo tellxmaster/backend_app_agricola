@@ -54,6 +54,22 @@ const categoriasController = {
       res.status(500).send(error.message);
     }
   },
+  obtenerPorId: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const categoria = await Categoria.findOne({
+        where: { id_producto: id },
+      });
+
+      if (categoria) {
+        res.json(pro);
+      } else {
+        res.status(404).json({ message: "Categoria no encontrada" });
+      }
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 export default categoriasController;
