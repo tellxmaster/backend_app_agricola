@@ -55,7 +55,7 @@ router.get("/proveedores", proveedoresController.listar);
  *       404:
  *         description: Proveedor no encontrado
  */
-router.get("/proveedores/:id", proveedoresController.obtenerPorId)
+router.get("/proveedores/:id", proveedoresController.obtenerPorId);
 
 /**
  * @swagger
@@ -196,8 +196,7 @@ router.get("/productos", productoController.listar);
  *       404:
  *         description: Producto no encontrado
  */
-router.get("/productos/:id", productoController.obtenerPorId)
-
+router.get("/productos/:id", productoController.obtenerPorId);
 
 /**
  * @swagger
@@ -297,24 +296,24 @@ router.get("/ofertas", ofertasController.listar);
 
 /**
  * @swagger
- * /oferta/{id_oferta}:
+ * /ofertas/{id_oferta}:
  *   get:
  *     summary: Obtiene una oferta
  *     tags: [Ofertas]
  *     parameters:
  *       - in: path
- *         name: id_ofertas
+ *         name: id_oferta
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID de la oferta a eliminar
+ *         description: ID del oferta a obtener
  *     responses:
  *       200:
- *         description: Oferta obtenida exitosamente
+ *         description: Oferta obtenido exitosamente
  *       404:
- *         description: Oferta no encontrada
+ *         description: Oferta no encontrado
  */
-router.get("/ofertas/:id", ofertasController.obtenerPorId)
+router.get("/ofertas/:id", ofertasController.obtenerPorId);
 
 /**
  * @swagger
@@ -465,7 +464,7 @@ router.get("/categorias", categoriasController.listar);
 
 /**
  * @swagger
- * /categoria/{id_categoria}:
+ * /categorias/{id_categoria}:
  *   get:
  *     summary: Obtiene una categoria
  *     tags: [Categorias]
@@ -475,14 +474,14 @@ router.get("/categorias", categoriasController.listar);
  *         schema:
  *           type: integer
  *         required: true
- *         description: ID de la categoria a eliminar
+ *         description: ID de la categoria a obtener
  *     responses:
  *       200:
  *         description: Categoria obtenida exitosamente
  *       404:
  *         description: Categoria no encontrada
  */
-router.get("/categorias/:id", categoriasController.obtenerPorId)
+router.get("/categorias/:id", categoriasController.obtenerPorId);
 
 /**
  * @swagger

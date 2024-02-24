@@ -1,4 +1,5 @@
 import Categoria from "../models/categoria.mjs";
+
 const categoriasController = {
   listar: async (req, res) => {
     try {
@@ -11,8 +12,8 @@ const categoriasController = {
 
   crear: async (req, res) => {
     try {
-      const producto = await Categoria.create(req.body);
-      res.status(201).json(producto);
+      const categoria = await Categoria.create(req.body);
+      res.status(201).json(categoria);
     } catch (error) {
       res.status(500).send(error.message);
     }
@@ -43,10 +44,10 @@ const categoriasController = {
       });
 
       if (updateRowCount > 0) {
-        const updatedCategoria = await Categoria.findOne({
+        const updatedProducto = await Categoria.findOne({
           where: { id_producto: id },
         });
-        res.json(updatedCategoria);
+        res.json(updatedProducto);
       } else {
         res.status(404).json({ message: "Categoria no encontrado" });
       }
@@ -54,6 +55,7 @@ const categoriasController = {
       res.status(500).send(error.message);
     }
   },
+
   obtenerPorId: async (req, res) => {
     try {
       const id = req.params.id;
@@ -64,7 +66,7 @@ const categoriasController = {
       if (categoria) {
         res.json(categoria);
       } else {
-        res.status(404).json({ message: "Categoria no encontrada" });
+        res.status(404).json({ message: "Categoria no encontrado" });
       }
     } catch (error) {
       res.status(500).send(error.message);

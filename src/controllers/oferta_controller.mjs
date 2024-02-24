@@ -22,7 +22,7 @@ const ofertasController = {
     try {
       const id = req.params.id;
       const deleteRowCount = await Oferta.destroy({
-        where: { id_oferta: id },
+        where: { id_producto: id },
       });
 
       if (deleteRowCount > 0) {
@@ -39,14 +39,14 @@ const ofertasController = {
     try {
       const id = req.params.id;
       const updateRowCount = await Oferta.update(req.body, {
-        where: { id_oferta: id },
+        where: { id_producto: id },
       });
 
       if (updateRowCount > 0) {
-        const updatedOferta = await Oferta.findOne({
-          where: { id_oferta: id },
+        const updatedProducto = await Oferta.findOne({
+          where: { id_producto: id },
         });
-        res.json(updatedOferta);
+        res.json(updatedProducto);
       } else {
         res.status(404).json({ message: "Oferta no encontrado" });
       }
@@ -58,13 +58,13 @@ const ofertasController = {
     try {
       const id = req.params.id;
       const oferta = await Oferta.findOne({
-        where: { id_oferta: id },
+        where: { id_producto: id },
       });
 
       if (oferta) {
         res.json(oferta);
       } else {
-        res.status(404).json({ message: "Oferta no encontrada" });
+        res.status(404).json({ message: "Oferta no encontrado" });
       }
     } catch (error) {
       res.status(500).send(error.message);
