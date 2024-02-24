@@ -54,6 +54,10 @@ const options = {
               format: "date",
               example: "2024-02-15",
             },
+            image_url: {
+              type: "string",
+              example: "assets/choclo.png",
+            },
             disponibilidad: {
               type: "boolean",
               example: true,

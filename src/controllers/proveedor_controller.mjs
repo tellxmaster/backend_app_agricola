@@ -55,6 +55,23 @@ const proveedoresController = {
       res.status(500).send(error.message);
     }
   },
+
+  obtenerPorId: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const proveedor = await Proveedor.findOne({
+        where: { id_proveedor: id },
+      });
+
+      if (proveedor) {
+        res.json(proveedor);
+      } else {
+        res.status(404).json({ message: "Proveedor no encontrado" });
+      }
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  },
 };
 
 export default proveedoresController;

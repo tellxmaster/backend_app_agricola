@@ -1,4 +1,4 @@
-import Oferta from "../models/producto.mjs";
+import Oferta from "../models/oferta.mjs";
 const ofertasController = {
   listar: async (req, res) => {
     try {

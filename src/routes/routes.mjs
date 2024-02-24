@@ -38,6 +38,27 @@ router.get("/proveedores", proveedoresController.listar);
 
 /**
  * @swagger
+ * /proveedores/{id_proveedor}:
+ *   get:
+ *     summary: Obtiene un proveedor
+ *     tags: [Proveedores]
+ *     parameters:
+ *       - in: path
+ *         name: id_proveedor
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID del proveedor a eliminar
+ *     responses:
+ *       200:
+ *         description: Proveedor obtenido exitosamente
+ *       404:
+ *         description: Proveedor no encontrado
+ */
+router.get("/proveedores/:id", proveedoresController.obtenerPorId)
+
+/**
+ * @swagger
  * /proveedores:
  *   post:
  *     summary: Crea un nuevo proveedor

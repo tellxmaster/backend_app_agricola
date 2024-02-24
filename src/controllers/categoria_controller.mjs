@@ -1,4 +1,4 @@
-import Categoria from "../models/producto.mjs";
+import Categoria from "../models/categoria.mjs";
 const categoriasController = {
   listar: async (req, res) => {
     try {

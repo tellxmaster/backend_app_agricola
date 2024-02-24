@@ -18,6 +18,9 @@ const Producto = sequelize.define(
     fecha_cosecha: {
       type: DataTypes.DATE,
     },
+    image_url: {
+      type: DataTypes.STRING,
+    },
     disponibilidad: {
       type: DataTypes.BOOLEAN,
     },
