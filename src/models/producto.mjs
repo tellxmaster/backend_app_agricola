@@ -16,7 +16,7 @@ const Producto = sequelize.define(
       type: DataTypes.STRING,
     },
     fecha_cosecha: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
     },
     image_url: {
       type: DataTypes.STRING,
