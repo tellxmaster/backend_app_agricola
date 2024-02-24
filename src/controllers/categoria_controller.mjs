@@ -58,11 +58,11 @@ const categoriasController = {
     try {
       const id = req.params.id;
       const categoria = await Categoria.findOne({
-        where: { id_producto: id },
+        where: { id_categoria: id },
       });
 
       if (categoria) {
-        res.json(pro);
+        res.json(categoria);
       } else {
         res.status(404).json({ message: "Categoria no encontrada" });
       }
