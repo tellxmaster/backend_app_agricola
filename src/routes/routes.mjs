@@ -9,6 +9,10 @@ import proveedoresController from "../controllers/proveedor_controller.mjs";
 import productoController from "../controllers/producto_controller.mjs";
 import ofertasController from "../controllers/oferta_controller.mjs";
 import categoriasController from "../controllers/categoria_controller.mjs";
+
+import costosDeLogisticaController from "../controllers/costo_logistica_controller.mjs";
+import costosDePersonalController from "../controllers/costos_personal_controller.mjs";
+import costosDeProduccionController from "../controllers/costos_produccion_controller.mjs";
 import { join } from "path";
 
 const router = Router();
@@ -17,6 +21,34 @@ router.get("/", (req, res) => {
   const htmlPath = join(process.cwd(), "src", "resources", "html", "home.html");
   res.sendFile(htmlPath);
 });
+
+
+
+// Existing router code...
+
+// Costos de Logistica Routes
+router.get("/costos-logistica", costosDeLogisticaController.listar);
+router.get("/costos-logistica/:id", costosDeLogisticaController.obtenerPorId);
+router.post("/costos-logistica", costosDeLogisticaController.crear);
+router.delete("/costos-logistica/:id", costosDeLogisticaController.eliminar);
+router.put("/costos-logistica/:id", costosDeLogisticaController.actualizar);
+
+// Costos de Personal Routes
+router.get("/costos-personal", costosDePersonalController.listar);
+router.get("/costos-personal/:id", costosDePersonalController.obtenerPorId);
+router.post("/costos-personal", costosDePersonalController.crear);
+router.delete("/costos-personal/:id", costosDePersonalController.eliminar);
+router.put("/costos-personal/:id", costosDePersonalController.actualizar);
+
+// Costos de Produccion Routes
+router.get("/costos-produccion", costosDeProduccionController.listar);
+router.get("/costos-produccion/:id", costosDeProduccionController.obtenerPorId);
+router.post("/costos-produccion", costosDeProduccionController.crear);
+router.delete("/costos-produccion/:id", costosDeProduccionController.eliminar);
+router.put("/costos-produccion/:id", costosDeProduccionController.actualizar);
+
+// Continue with existing routes...
+
 
 /**
  * @swagger
