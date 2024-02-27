@@ -12,8 +12,14 @@ const Proveedor = sequelize.define(
     nombre: {
       type: DataTypes.STRING,
     },
-    ubicacion: {
+    direccion: {
       type: DataTypes.STRING,
+      allowNull: true, // Esto permite que el campo sea null
+    },
+    ubicacion: {
+      type: DataTypes.JSON,
+      allowNull: true, // Esto permite que el campo sea null
+      // Puedes especificar que este campo espera un objeto con una estructura específica, pero eso se manejaría a nivel de aplicación, no a nivel de base de datos.
     },
     telefono: {
       type: DataTypes.STRING,
