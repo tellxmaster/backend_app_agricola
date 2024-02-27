@@ -28,9 +28,6 @@ Pedido.belongsTo(Producto, { foreignKey: "id_producto" });
 Oferta.hasMany(Pedido, { foreignKey: "id_oferta" });
 Pedido.belongsTo(Oferta, { foreignKey: "id_oferta" });
 
-// Exportar los modelos con las relaciones establecidas
-export { Proveedor, Producto, Oferta, Categoria, Pedido, Empresa };
-
 Producto.belongsToMany(CostosDePersonal, {
   through: "Personal_Producto",
   foreignKey: "producto_id",
@@ -52,4 +49,6 @@ export {
   CostosDeProduccion,
   CostosDeLogistica,
   CostosDePersonal,
+  Pedido,
+  Empresa,
 };

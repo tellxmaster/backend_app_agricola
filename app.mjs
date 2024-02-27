@@ -14,6 +14,11 @@ import {
   Producto,
   Oferta,
   Categoria,
+  CostosDeProduccion,
+  CostosDeLogistica,
+  CostosDePersonal,
+  Empresa,
+  Pedido,
 } from "./src/models/relationships.mjs";
 
 const app = express();
@@ -29,7 +34,7 @@ sequelize
       "[OK]: Conexión a la base de datos establecida con éxito.".magenta
     );
     return sequelize
-      .sync({})
+      .sync({ force: true })
       .then(() => {
         console.log("[OK]: Modelo sincronizado con éxito.".green);
       })
