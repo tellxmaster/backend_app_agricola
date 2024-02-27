@@ -20,11 +20,14 @@ import ofertasController from "../controllers/oferta_controller.mjs";
 import categoriasController from "../controllers/categoria_controller.mjs";
 import bodegaController from "../controllers/tipo_bodega_controller.mjs.mjs";
 import responsablesBodegaController from "../controllers/responsable_bodega_controller.mjs.mjs";
-import bodegaController from "../controllers/bodega_controller.mjs";
 import inventarioController from "../controllers/inventario_controller.mjs";
 import reportesController from "../controllers/reporte_controller.mjs.mjs";
-import { join } from "path";
 import tiposBodegaController from "../controllers/tipo_bodega_controller.mjs";
+import empresasController from "../controllers/empresa_controller.mjs";
+import pedidosController from "../controllers/pedidos_controller.mjs";
+import costosDeLogisticaController from "../controllers/costo_logistica_controller.mjs";
+import costosDePersonalController from "../controllers/costos_personal_controller.mjs";
+import costosDeProduccionController from "../controllers/costos_produccion_controller.mjs";
 import { join } from "path";
 
 const router = Router();

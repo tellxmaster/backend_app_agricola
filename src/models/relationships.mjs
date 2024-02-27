@@ -58,6 +58,7 @@ CostosDePersonal.belongsToMany(Producto, {
 Producto.hasMany(CostosDeProduccion, { foreignKey: "id_producto" });
 CostosDeProduccion.belongsTo(Producto, { foreignKey: "id_producto" });
 
+// Exportar los modelos con las relaciones establecidas
 export {
   Proveedor,
   Producto,
