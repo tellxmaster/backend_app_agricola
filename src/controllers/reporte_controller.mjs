@@ -1,11 +1,11 @@
 import PDFDocument from "pdfkit";
-import { fetchInventarios } from "./inventarioControllers.mjs";
+import inventarioController from "./inventario_controller.mjs";
 import { format } from "date-fns";
 
 const reportesController = {
   generarReporte: async (req, res) => {
     try {
-      const inventario = await fetchInventarios();
+      const inventario = await inventarioController.fetchInventarios();
       // Configura la respuesta para descargar el PDF
       res.setHeader("Content-Type", "application/pdf");
       res.setHeader(

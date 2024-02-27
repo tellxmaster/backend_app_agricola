@@ -13,7 +13,7 @@ const ResponsableBodega = sequelize.define(
     correo_responsable: Sequelize.STRING,
   },
   {
-    tableName: "responsable_bodega",
+    tableName: "responsables_bodega",
   }
 );
 

@@ -1,6 +1,6 @@
 import Bodega from "../models/bodega.mjs";
 import Inventario from "../models/inventario.mjs";
-import Producto from "../models/productos.mjs";
+import Producto from "../models/producto.mjs";
 
 const inventarioController = {
   obtenerInventarios: async (req, res) => {

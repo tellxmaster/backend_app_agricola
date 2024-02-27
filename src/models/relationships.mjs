@@ -8,8 +8,6 @@ import Empresa from "./empresa.mjs";
 import CostosDePersonal from "./costo-personal.mjs";
 import CostosDeLogistica from "./costo-logistica.mjs";
 import CostosDeProduccion from "./costo-produccion.mjs";
-import Producto from "./productos.mjs";
-import Proveedor from "./proveedor.mjs";
 import Bodega from "./bodega.mjs";
 import TipoBodega from "./tipo_bodega.mjs";
 import ResponsableBodega from "./responsable_bodega.mjs";

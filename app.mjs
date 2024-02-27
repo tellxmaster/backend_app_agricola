@@ -1,16 +1,21 @@
 import express from "express";
 import bodyParser from "body-parser";
+import colors from "colors";
 import sequelize from "./src/config/database.mjs";
-import router from "./src/routes/routes.mjs";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./src/config/swagger.mjs";
+import swaggerJsdoc from "swagger-jsdoc";
+import routes from "./src/routes/routes.mjs";
 import cors from "cors";
 // Configuración de Express
 const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(cors());
 
-app.use(bodyParser.json());
-app.use(router);
+app.use(cors());
+app.use(express.json());
 
-// Establecer conexión a la base de datos y sincronizar modelos
 sequelize
   .authenticate()
   .then(() => {
@@ -18,7 +23,7 @@ sequelize
       "[OK]: Conexión a la base de datos establecida con éxito.".magenta
     );
     return sequelize
-      .sync({ force: true })
+      .sync({})
       .then(() => {
         console.log("[OK]: Modelo sincronizado con éxito.".green);
       })
@@ -27,29 +32,18 @@ sequelize
       });
   })
   .then(() => {
-    console.log("Modelos sincronizados correctamente");
-  })
-  .catch((err) => {
-    console.error("Error al conectar a la base de datos:", err);
-  });
-
-// Sincroniza los modelos con la base de datos
-sequelize
-  .sync()
-  .then(() => {
-    console.log("Todas las tablas se crearon correctamente");
-
-    import("./src/models/relations.mjs").then(({ default: relations }) => {
-      console.log("Relaciones establecidas correctamente");
-      console.log("Relaciones establecidas correctamente");
-    });
-
-    // Inicia el servidor
-    const PORT = process.env.PORT || 3001;
-    app.listen(PORT, () => {
-      console.log(`Servidor ejecutándose en el puerto ${PORT}`);
+    console.log("[OK]: Base de datos sincronizada con éxito.".cyan);
+    app.listen(port, () => {
+      console.log(
+        `[Msg]: Servidor corriendo en ${process.env.HOST_URL}:${port}`.yellow
+      );
     });
   })
-  .catch((err) => {
-    console.error("Error al sincronizar las tablas:", err);
-  });
+  .catch((error) =>
+    console.error("No se pudo conectar a la base de datos:", error)
+  );
+
+// Usa tus rutas
+const specs = swaggerJsdoc(swaggerSpec);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+app.use("/", routes);
