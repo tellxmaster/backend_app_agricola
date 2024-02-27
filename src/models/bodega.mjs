@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import sequelize from "../database/database.mjs";
+import sequelize from "../config/database.mjs";
 import ResponsableBodega from "./responsable_bodega.mjs";
 import TipoBodega from "./tipo_bodega.mjs";
 

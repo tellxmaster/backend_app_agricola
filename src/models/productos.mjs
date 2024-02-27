@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import sequelize from "../database/database.mjs";
+import sequelize from "../config/database.mjs";
 import Proveedor from "./proveedor.mjs";
 
 // Definición de modelos

@@ -1,5 +1,5 @@
 import { DataTypes, Sequelize } from "sequelize";
-import sequelize from "../database/database.mjs";
+import sequelize from "../config/database.mjs";
 
 const TipoBodega = sequelize.define('TipoBodega', {
   id_tipo_bodega: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },

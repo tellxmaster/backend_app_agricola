@@ -1,9 +1,9 @@
 // Importa la clase Sequelize desde el paquete 'sequelize'
 import { Sequelize } from 'sequelize';
-import db from '../database/database.mjs';
+import db from '../config/database.mjs';
 
 // Importa la instancia de Sequelize
-import sequelize from '../database/database.mjs'; // Ajusta la ruta según la ubicación de tu archivo database.mjs
+import sequelize from "../config/database.mjs";
 
 // Define el modelo Proveedor con el nombre de la tabla 'Proveedor'
 const Proveedor = sequelize.define('Proveedor', {
