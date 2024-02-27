@@ -130,6 +130,100 @@ const options = {
             },
           },
         },
+        Empresa: {
+          type: "object",
+          properties: {
+            id_empresa: {
+              type: "integer",
+              format: "int64",
+              example: 1,
+            },
+            nombre: {
+              type: "string",
+              example: "Empresa XYZ",
+            },
+            direccion: {
+              type: "string",
+              example: "Calle Falsa 123, Ciudad",
+            },
+            numero_contacto: {
+              type: "string",
+              example: "0991234567",
+            },
+            correo: {
+              type: "string",
+              example: "correo@test.com",
+            },
+            ruc: {
+              type: "string",
+              example: "1234567890",
+            },
+            nif: {
+              type: "string",
+              example: "A12345678",
+            },
+            preferencias_entrega: {
+              type: "string",
+              example: "Entrega a domicilio entre las 17h00 y 19h00",
+            },
+          },
+        },
+        Pedido: {
+          type: "object",
+          properties: {
+            id_pedido: {
+              type: "integer",
+              format: "int64",
+              example: 1,
+            },
+            id_empresa: {
+              type: "integer",
+              format: "int64",
+              example: 1,
+            },
+            id_producto: {
+              type: "integer",
+              format: "int64",
+              example: 1,
+            },
+            id_oferta: {
+              type: "integer",
+              format: "int64",
+              example: 1,
+            },
+            cantidad: {
+              type: "integer",
+              example: 100,
+            },
+            fecha_pedido: {
+              type: "string",
+              format: "date",
+              example: "2024-02-15",
+            },
+            fecha_entrega: {
+              type: "string",
+              format: "date",
+              example: "2024-02-15",
+            },
+            direccion_entrega: {
+              type: "string",
+              example: "Calle Falsa 123, Ciudad",
+            },
+            estado: {
+              type: "string",
+              example: "Pendiente",
+            },
+            total: {
+              type: "number",
+              format: "float",
+              example: 100.0,
+            },
+            observaciones: {
+              type: "string",
+              example: "Entregar en la puerta",
+            }
+          },
+        },
       },
     },
   },

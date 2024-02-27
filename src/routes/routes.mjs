@@ -4,11 +4,16 @@ import {
   Producto,
   Oferta,
   Categoria,
+  Empresa,
+  Pedido,
 } from "../models/relationships.mjs";
 import proveedoresController from "../controllers/proveedor_controller.mjs";
 import productoController from "../controllers/producto_controller.mjs";
 import ofertasController from "../controllers/oferta_controller.mjs";
 import categoriasController from "../controllers/categoria_controller.mjs";
+import empresasController from "../controllers/empresa_controller.mjs";
+import pedidosController from "../controllers/pedidos_controller.mjs";
+
 import { join } from "path";
 
 const router = Router();
@@ -577,5 +582,20 @@ router.delete("/categorias/:id", categoriasController.eliminar);
  *         description: Información inválida
  */
 router.put("/categorias/:id", categoriasController.actualizar);
+
+
+// Rutas para empresas
+router.get("/empresas", empresasController.listar);
+router.get("/empresas/:id", empresasController.obtenerPorId);
+router.post("/empresas", empresasController.crear);
+router.delete("/empresas/:id", empresasController.eliminar);
+router.put("/empresas/:id", empresasController.actualizar);
+
+// Rutas para pedidos
+router.get("/pedidos", pedidosController.listar);
+router.get("/pedidos/:id", pedidosController.obtenerPorId);
+router.post("/pedidos", pedidosController.crear);
+router.delete("/pedidos/:id", pedidosController.eliminar);
+router.put("/pedidos/:id", pedidosController.actualizar);
 
 export default router;

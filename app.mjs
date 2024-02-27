@@ -6,6 +6,9 @@ import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./src/config/swagger.mjs";
 import swaggerJsdoc from "swagger-jsdoc";
 import routes from "./src/routes/routes.mjs";
+// Descomentar importaciones para ejecutar el seeder
+// import "./src/config/seeder.mjs";
+
 import {
   Proveedor,
   Producto,
@@ -14,10 +17,9 @@ import {
 } from "./src/models/relationships.mjs";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
-
 app.use(express.json());
 
 sequelize
