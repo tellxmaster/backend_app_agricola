@@ -5,6 +5,9 @@ import Oferta from "./oferta.mjs";
 import Categoria from "./categoria.mjs";
 import Pedido from "./pedido.mjs";
 import Empresa from "./empresa.mjs";
+import CostosDePersonal from "./costo-personal.mjs";
+import CostosDeLogistica from "./costo-logistica.mjs";
+import CostosDeProduccion from "./costo-produccion.mjs";
 
 // Relaciones
 Producto.belongsTo(Proveedor, { foreignKey: "id_proveedor" });
@@ -26,4 +29,27 @@ Oferta.hasMany(Pedido, { foreignKey: "id_oferta" });
 Pedido.belongsTo(Oferta, { foreignKey: "id_oferta" });
 
 // Exportar los modelos con las relaciones establecidas
-export { Proveedor, Producto, Oferta, Categoria, Pedido, Empresa};
+export { Proveedor, Producto, Oferta, Categoria, Pedido, Empresa };
+
+Producto.belongsToMany(CostosDePersonal, {
+  through: "Personal_Producto",
+  foreignKey: "producto_id",
+});
+CostosDePersonal.belongsToMany(Producto, {
+  through: "Personal_Producto",
+  foreignKey: "personal_id",
+});
+
+Producto.hasMany(CostosDeProduccion, { foreignKey: "id_producto" });
+CostosDeProduccion.belongsTo(Producto, { foreignKey: "id_producto" });
+
+// Exportar los modelos con las relaciones establecidas
+export {
+  Proveedor,
+  Producto,
+  Oferta,
+  Categoria,
+  CostosDeProduccion,
+  CostosDeLogistica,
+  CostosDePersonal,
+};
